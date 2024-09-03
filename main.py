@@ -1,4 +1,4 @@
-#driver.find_element('xpath', 'ruta del xpath') 
+
 import pandas as pd
 import time
 from selenium import webdriver
@@ -10,14 +10,14 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException
 from datetime import datetime
 
-webdriver_path = r'C:\Users\ibane\OneDrive\Escritorio\chromedriver-win64\chromedriver.exe'
+webdriver_path = r'add the webdriver in here'
 
 
 service = Service(executable_path=webdriver_path)
 driver = webdriver.Chrome(service=service)
 
 
-url_form = "https://docs.google.com/forms/d/e/1FAIpQLSdrGlEUtL1RTZko7-h2wppSiMr0fhf1sZO6dBgWU1nLbyhu-g/viewform"
+url_form = "add the url link form"
 driver.get(url_form)
 time.sleep(3)
 
@@ -30,14 +30,14 @@ for data in row_dicts:
     email_input_tag = '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div[1]/div[2]/div[1]/div/div[1]/input'
     driver.find_element('xpath', email_input_tag).send_keys(data['Mail'])
 
-    # Nombre 
+    # Name
     name_input_tag = '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div[1]'
     name_value_select = f'/html/body/div[1]/div[2]/form/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[2]//*[@data-value="{data['name']}"]'
     name_input_tag = driver.find_element('xpath',name_input_tag).click()
     time.sleep(1)
     name_value_select = driver.find_element('xpath',name_value_select).click()
 
-    # Lider de equipo
+    # TL
     time.sleep(1)
     tl_input_tag = '/html/body/div[1]/div[2]/form/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div[1]'
     tl_value_select = f'/html/body/div[1]/div[2]/form/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[2]//*[@data-value="{data['TL']}"]'
@@ -45,7 +45,7 @@ for data in row_dicts:
     time.sleep(1)
     tl_value_select = driver.find_element('xpath',tl_value_select).click()
     time.sleep(1)
-    # Curso
+    # Course
     courses_options = {
         'Python'      : '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[4]/div/div/div[2]/div/div/span/div/div[1]/label',
         'Scratch'     : '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[4]/div/div/div[2]/div/div/span/div/div[2]/label',
